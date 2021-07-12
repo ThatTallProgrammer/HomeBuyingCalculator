@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thymeleaf</title>
+    <link rel="stylesheet" th:href="@{https://necolas.github.io/normalize.css/8.0.1/normalize.css}"/>
+    <link rel="stylesheet" th:href="@{css/calculator.css}"/>
+    <script
+            th:src="@{https://code.jquery.com/jquery-3.6.0.min.js}"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="topnav">
+    <a href="#">
+        <div id="page-title-box" class="centered-horizontal">
+            <h1 id="page-title" class="centered-horizontal">Mortgage DTI Calculator</h1>
+        </div>
+    </a>
+</div>
+
+<div id="calculator-section" class="content-wrapper centered-horizontal grey-shadow">
+    <script type="text/javascript">
+        function popup(link, windowname) {
+            if(!window.focus) return true;
+            let href = typeof(link) == 'string' ?  link : link.href;
+            window.open(href, windowname, 'width=400, height=500, scrollbars=yes');
+            return false;
+        }
+    </script>
+    <div class="spacer"></div>
+    <div class="text-box centered-horizontal">
+        <h1>Instructions</h1>
+        <p>
+            This calculator uses the Debt to Income (DTI) Ratio to help home buyers decide not only home much home they
+            can afford, but how much home they SHOULD afford. "Home poor" refers to having such a high mortgage payment
+            that a borrower can afford little else. This can happen regardless of how high your monthly income is. It's in
+            a buyer's interest to keep their DTI low.
+        </p>
+        <p>
+            Simply fill out the input fields and the calculations at the bottom of the page update automatically.
+        </p>
+    </div>
+
+    <div class="centered-horizontal" id="input-section">
+        <table>
+            <tr>
+                <td>
+                    <label for="monthly-income">Gross Monthly Income</label>
+                    <button class="info-button" onclick="popup('information/gross-income', 'Gross Monthly Income Information')">?</button>
+                </td>
+                <td><input type="number" id="monthly-income" step="50" value="3000" min="0"/></td>
+                <td>$</td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="dti-ratio">Debt to Income (DTI) Ratio</label>
+                    <button class="info-button" onclick="popup('information/dti', 'DTI Information')">?</button>
+                </td>
+                <td><input type="number" id="dti-ratio" value="36" min="0" max="100"/></td>
+                <td>%</td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="monthly-debt">Total Monthly Debt</label>
+                    <button class="info-button" onclick="popup('information/monthly-debt', 'Monthly Debt Information')">?</button>
+                </td>
+                <td><input type="number" id="monthly-debt" step="50" value="0" min="0"/></td>
+                <td>$</td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="interest-rate">Interest Rate</label>
+                    <button class="info-button" onclick="popup('information/interest-rate', 'Interest Rate Information')">?</button>
+                </td>
+                <td><input type="number" id="interest-rate" step="0.1" value="4.0" min="0" max="100"/></td>
+                <td>%</td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="property-tax-rate">Property Tax Rate</label>
+                    <button class="info-button" onclick="popup('information/property-tax', 'Property Tax Information')">?</button>
+                </td>
+                <td><input type="number" id="property-tax-rate" step="0.01" value="1.25" min="0" max="100"/></td>
+                <td>%</td>
+            </tr>
+            <tr>
+                <td><label for="loan-period">Loan Period</label></td>
+                <td><input type="number" id="loan-period" value="30" min="0" max="100"/></td>
+                <td>Yrs</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="centered-horizontal" id="calculations">
+        <table>
+            <tr>
+                <td><label for="monthly-payment">Max Monthly Payment</label></td>
+                <td><input id="monthly-payment" name="monthly-payment" /></td>
+            </tr>
+            <tr>
+                <td><label for="home-price">Max Home Price</label></td>
+                <td><input id="home-price" name="home-price" readonly="readonly" /></td>
+            </tr>
+            <tr>
+                <td><label for="loan-price">Total Cost of Loan</label></td>
+                <td><input id="loan-price" name="loan-price" readonly="readonly" /></td>
+            </tr>
+            <tr>
+                <td><label for="property-tax-payment">Monthly Property Tax Payment</label></td>
+                <td><input id="property-tax-payment" name="property-tax-payment" readonly="readonly" /></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<script type="text/javascript" th:src="@{js/calculation-service.js}"></script>
+<script type="text/javascript" th:src="@{js/page-behavior.js}"></script>
+</body>
+</html>

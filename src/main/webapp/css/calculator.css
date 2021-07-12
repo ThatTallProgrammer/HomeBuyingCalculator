@@ -1,0 +1,88 @@
+body {
+    font-family: "Times New Roman", Times, serif;
+}
+
+label {
+    font-size: 150%;
+}
+
+input {
+    height: 30px;
+    width: 300px;
+    border-radius: 1%
+}
+
+#page-title {
+    font-size: 300%;
+    color: azure;
+    border: black;
+}
+
+#page-title-box {
+    width: 700px;
+}
+
+#calculator-section {
+    margin-top: 10px;
+    padding:10px;
+    margin-bottom: 10px;
+    border-radius: 0.75%;
+}
+
+#calculator-section input {
+    margin-left: 50px;
+}
+
+#calculations {
+    margin-top: 75px;
+}
+
+.topnav {
+    background-color: cornflowerblue;
+    overflow: hidden;
+    box-shadow: 5px 0 5px black;
+}
+
+.topnav a {
+    text-decoration: none;
+}
+
+.text-box {
+    width: 93%;
+    background-color: #fff6ea;
+    margin: 5px;
+    box-shadow: 0 0 1px grey;
+    border-radius: 0.75%;
+    padding: 0 5px 0 5px;
+}
+
+.spacer {
+    min-height: 1px;
+}
+
+.centered-horizontal {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.centered-vertical {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.content-wrapper {
+    max-width: 750px;
+    background-color: white;
+}
+
+.grey-shadow {
+    box-shadow: 0 0 5px grey;
+}
+
+.info-button {
+    border-radius: 50%;
+}
+
+.italic {
+    font-style: italic;
+}
